@@ -1,0 +1,78 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+}
+
+.left-panel {
+  background-color: #a8c0ff20;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.left-panel-image-container {
+  width: 100%;
+  padding: 16px;
+}
+
+.left-panel-image {
+  width: 100%;
+}
+
+.center-panel {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.center-panel-image-container {
+  padding: 16px;
+  /* max-width: 100%;
+  max-height: 100%; */
+  /* width: 100%; */
+  height: 100%;
+  width: 100%;
+}
+.center-panel-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.right-panel {
+  background-color: #a8c0ff20;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.right-panel-button-container {
+  width: 100%;
+  padding: 16px;
+}
+
+.margin{
+  margin: 10px;
+}
+
+.right-panel-image {
+  padding: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.right-panel-image-no {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+

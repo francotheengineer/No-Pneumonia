@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="static/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="left-panel" class="left-panel">
+      <img src="static/test_images/no-pneumonia.png" class="right-panel-image-no">
+      <img src="static/test_images/intel-mov.png" class="right-panel-image">
+    <div class="left-panel-image-container">
+      <img src="static/test_images/person1_virus_6.jpeg" onclick="changemainimg(this)" class="left-panel-image">
+    </div>
+
+    <div id ="imageCanvasContainerSample" onclick="changeMainImg(this)" style="visibility: none" class="left-panel-image-container"><canvas id="imageCanvas" class="left-panel-image"></canvas></div>
+  </div>
+
+  <div class="center-panel">
+    <!-- <input class="form-control form-control-sm" type="text" placeholder="Search"> -->
+    <!-- <img src="static/test_images/person1_virus_6.jpeg" class="center-panel-image" id="main_img"> -->
+    <div id="mainImgDiv"class="center-panel-image-container"><canvas id="mainImg" class="center-panel-image"></canvas></div>
+  </div>
+
+
+  <div class="right-panel">
+        <span class="btn btn-default btn-file">
+            <img src="static/upload_file.svg"/><input type="file" id="imageLoader" name="image">
+        </span>
+        <!-- <button type="button" id="upload_button" class="btn btn-outline-dark w-100" onclick="document.getElementById('upload').click()" data-toggle="button" autocomplete="off"><img src="static/send.svg"/></button> -->
+        <!-- <input type="file" id="imageLoader"/> -->
+
+    </form>
+
+    
+    <div class="right-panel-button-container">
+      <div class="btn-group-vertical">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <button type="button" class="btn btn-outline-secondary btn-md float-right" name="options" id="xray"
+            autocomplete="off" checked onclick="toggel_xray()">x-ray</button>
+          <button type="button" class="btn btn-outline-secondary btn-md float-right" name="options" id="segmentation"
+            autocomplete="off" onclick="toggel_xray()" disabled>analysis</button>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg margin">Accuracy</button>
+        <button type="button" class="btn btn-primary btn-sm margin">Normal</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm margin" id = "normal">23%</button>
+        <button type="button" class="btn btn-primary btn-sm margin">Pneumonia</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm margin" id = "pneumonia">77%</button>
+        <button type="button" class="btn btn-primary btn-md margin">Diagnosis</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm margin" id = "diagnosis">Pneumonia</button>
+        <button type="button" class="btn btn-primary btn-md margin">Treatment</button>
+        <button type="button" class="btn btn-outline-secondary btn-sm margin" id = "treatment">Antibiotics</button>
+      </div>
+    </div>
+    <script src="static/index.js"></script>
+</body>
+
+</html>
