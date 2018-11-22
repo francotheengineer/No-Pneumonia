@@ -71,14 +71,19 @@ function revisedRandId() {
 
 function duplicate_canvas() {
     var cloned_canvas = canvasSample.cloneNode(true);
+
     cloned_canvas.id = revisedRandId(); 
     // cloned_canvas.onclick = duplicate; 
     console.log(cloned_canvas.id)
     left_panel.appendChild(cloned_canvas);
-    cloned_canvas.style.visibility = '';
+    cloned_canvas.style.display = '';
     console.log(cloned_canvas.childNodes);
     console.log()
+    
+    cloned_canvas.appendChild(document.createElement('canvas'))
     cloned_canvas.childNodes[0].id = cloned_canvas.id + '_canvas'
+    cloned_canvas.childNodes[0].className= "left-panel-image"
+    
     return cloned_canvas.id
 }
 
@@ -94,7 +99,7 @@ function handleImage(e){
     reader.onload = function(event){
         var img = new Image();
         img.onload = function(){
-            console.log(canvasContainer.clientWidth)
+            console.log("canvasContainer.clientWidth", canvasContainer.clientWidth)
             canvas.width = canvasContainer.clientWidth;
             canvas.height = canvas.width*(img.height/img.width);
             // ctx.drawImage(img,0,0);
