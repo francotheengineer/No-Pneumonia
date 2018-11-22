@@ -8,5 +8,5 @@ Currently it is a work in progress, however, it only requires some parts to be p
 
 ## Humanitarian Need
 ____
-<img src="assets/no-pneumonia Public Release.png" style="align-self: center; width: 70% "/>
-<img src="assets/no-pneumonia Public Release (2).png" style="align-self: center; width: 70% "/>
+<img src="assets/no-pneumonia Public Release.png" width="70%" style="align-self: center; "/>
+<img src="assets/no-pneumonia Public Release (2).png" width="70%" style="align-self: center;"/>
