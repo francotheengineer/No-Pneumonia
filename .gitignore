@@ -8,7 +8,7 @@ __pycache__/
 
 #Project folders
 .History/
-
+.DS_Store
 # Distribution / packaging
 .Python
 develop-eggs/
