@@ -16,13 +16,15 @@
       <img src="static/test_images/person1_virus_6.jpeg" onclick="changemainimg(this)" class="left-panel-image">
     </div>
 
-    <div id ="imageCanvasContainerSample" onclick="changeMainImg(this)" style="display: none" class="left-panel-image-container"></div>
+    <div id ="imageCanvasContainerSampleLeft" onclick="changeMainImg(this)" style="display: none" class="left-panel-image-container"><canvas class="left-panel-image"></canvas></div>
+  
   </div>
 
-  <div class="center-panel">
+  <div id="center-panel" class="center-panel">
     <!-- <input class="form-control form-control-sm" type="text" placeholder="Search"> -->
     <!-- <img src="static/test_images/person1_virus_6.jpeg" class="center-panel-image" id="main_img"> -->
-    <div id="mainImgDiv"class="center-panel-image-container"><canvas id="mainImg" class="center-panel-image"></canvas></div>
+    <div id="imageCanvasContainerSampleCenter" class="center-panel-image-container"><canvas id="mainImg" class="center-panel-image"></canvas></div>
+ 
   </div>
 
 

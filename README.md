@@ -6,7 +6,22 @@ This is an End-End solution that allows the user to upload a picture of a digita
 
 Currently it is a work in progress, however, it only requires some parts to be plugged into each other.
 
-## Humanitarian Need
+## Humanitarian Need:
 ____
-<img src="assets/no-pneumonia Public Release.png" width="70%" style="align-self: center; "/>
-<img src="assets/no-pneumonia Public Release (2).png" width="70%" style="align-self: center;"/>
+<p align="center">
+<img src="assets/no-pneumonia Public Release.png" width="60%""/>
+<img src="assets/no-pneumonia Public Release (1).png" width="60%"/>
+</p>
+
+## Current Solutions:
+___
+<p align="center">
+<img src="assets/no-pneumonia Public Release (2).png" width="60%"/>
+</p>
+
+## Solution:
+___
+<p align="center">
+<img src="assets/no-pneumonia Public Release (4).png" width="60%"/>
+<img src="assets/no-pneumonia Public Release (3).png" width="60%"/>
+</p>
