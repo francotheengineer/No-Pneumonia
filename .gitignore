@@ -9,6 +9,7 @@ __pycache__/
 #Project folders
 .History/
 .DS_Store
+.vscode/
 # Distribution / packaging
 .Python
 develop-eggs/

@@ -2,7 +2,20 @@ const button_xray = document.getElementById("xray");
 const button_segmentation = document.getElementById("segmentation");
 const imageCanvasContainerSampleLeft = document.getElementById("imageCanvasContainerSampleLeft");
 const imageCanvasContainerSampleCenter = document.getElementById("imageCanvasContainerSampleCenter");
+const imageCanvasSampleCenter = document.getElementById("imageCanvasSampleCenter");
 const search_bar = document.getElementById("search_pos");
+
+const left_panel = document.getElementById("left-panel");
+const center_panel = document.getElementById("center-panel");
+console.log(center_panel)
+var imageLoader = document.getElementById('imageLoader');
+    imageLoader.addEventListener('change', handleImage, false);
+
+var xray = true;
+
+const mainImg = document.getElementById("mainImgDiv")
+
+
 /* const normal = document.getElementById("normal");
 const pneumonia = document.getElementById("pneumonia");
 const diagnosis = document.getElementById("diagnosis");
@@ -17,15 +30,6 @@ var data = {
         accuracy: 0.43
     }
 } */
-const left_panel = document.getElementById("left-panel");
-const center_panel = document.getElementById("center-panel");
-console.log(center_panel)
-var imageLoader = document.getElementById('imageLoader');
-    imageLoader.addEventListener('change', handleImage, false);
-
-var xray = true;
-const canvasSample = document.getElementById("imageCanvasContainerSample")
-const mainImg = document.getElementById("mainImgDiv")
 
 
 function toggel_xray() {
@@ -46,6 +50,7 @@ function toggel_xray() {
 }
 
 function changeMainImg(sourceCanvasDiv) {
+    hide_center_divs()
     console.log(sourceCanvasDiv.childNodes[0]);
     sourceCanvasDiv.id ;
     _center_img = document.getElementById((sourceCanvasDiv.id +'_center'));
@@ -58,19 +63,15 @@ function revisedRandId() {
     return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
   }
 
-function duplicate_canvas(canvasDivToClone, centerOrLeft) {
+function duplicate_canvas(canvasDivToClone) {
     
     var cloned_canvas = canvasDivToClone.cloneNode(true);
     cloned_canvas.id = revisedRandId(); 
 
     console.log(cloned_canvas.id)
-    if (centerOrLeft == 'left'){
-        console.log('here left')
-        left_panel.appendChild(cloned_canvas);
-    }
-    if (centerOrLeft =='center'){
-        center_panel.appendChild(cloned_canvas);
-    }
+
+    left_panel.appendChild(cloned_canvas);
+    
 
     cloned_canvas.style.display = '';
     console.log(cloned_canvas.childNodes);    
@@ -80,16 +81,45 @@ function duplicate_canvas(canvasDivToClone, centerOrLeft) {
     return cloned_canvas.id
 }
 
+function duplicate_canvas_center(canvasToClone){
+    console.log(imageCanvasContainerSampleCenter)
+    
+    // var cloned_canvas = canvasToClone.cloneNode(true);
+    var cloned_canvas = document.createElement("canvas");
+    cloned_canvas.classList.add("center-panel-image");
+    cloned_canvas.setAttribute("id", "test")
+
+    imageCanvasContainerSampleCenter.appendChild(cloned_canvas);
+    cloned_canvas.style.display = '';
+
+    return cloned_canvas.id
+}
+function hide_center_divs(){
+    var children = imageCanvasContainerSampleCenter.querySelectorAll('canvas');
+    console.log('childeren before for', children)
+    console.log('childeren length', children.length)
+    if (children.length != 0){
+        for (var i = 0, len = children.length; i < len; i++) {
+            console.log(children[i])
+            children[i].style.display = 'none';
+        }       
+    }
+}
+
+    
 
 function handleImage(e){
 
-    const canvasIDLeft = document.getElementById(duplicate_canvas(imageCanvasContainerSampleLeft, 'left'));
-    const canvasIDcenter = document.getElementById(duplicate_canvas(imageCanvasContainerSampleCenter, 'center'));
+    const canvasIDLeft = document.getElementById(duplicate_canvas(imageCanvasContainerSampleLeft));
+    hide_center_divs()
+    const canvasIDcenter = document.getElementById(duplicate_canvas_center(imageCanvasSampleCenter));
     canvasIDcenter.id = canvasIDLeft.id + '_center';
     var canvasLeft = document.getElementById(canvasIDLeft.childNodes[0].id);
-    var canvasCenter = document.getElementById(canvasIDcenter.childNodes[0].id);
+    console.log(canvasLeft)
+    var canvasCenter = document.getElementById(canvasIDcenter.id);
+    console.log(canvasCenter)
     var ctxLeft = canvasLeft.getContext('2d');
-    var ctxCenter =canvasCenter.getContext('2d'); 
+    var ctxCenter = canvasCenter.getContext('2d'); 
 
 
     console.log('here')
@@ -97,15 +127,20 @@ function handleImage(e){
     reader.onload = function(event){
         var img = new Image();
         img.onload = function(){
-            // console.log("canvasContainer.clientWidth", canvasContainer.clientWidth)
+            maxImgwidth = canvasIDLeft.clientWidth
             ctxLeft.width = canvasIDLeft.clientWidth;
             ctxLeft.height = ctxLeft.width*(img.height/img.width);
             // ctx.drawImage(img,0,0);
             ctxLeft.drawImage(img, 0, 0, img.width, img.height, 0, 0, ctxLeft.width, ctxLeft.height)
             
-            ctxCenter.width = canvasIDLeft.clientWidth;
-            ctxCenter.height = canvasIDcenter.width*(img.height/img.width);
+            canvasIDcenter.width = imageCanvasContainerSampleCenter.clientWidth
+            canvasIDcenter.height = imageCanvasContainerSampleCenter.clientHeight
+
+            ctxCenter.width = imageCanvasContainerSampleCenter.clientWidth;
+            ctxCenter.height = (ctxCenter.width)*(img.height/img.width);
+            console.log(img.height,img.width)
             // ctx.drawImage(img,0,0);
+            console.log(ctxCenter.width, ctxCenter.height)
             ctxCenter.drawImage(img, 0, 0, img.width, img.height, 0, 0, ctxCenter.width, ctxCenter.height)
              
 
