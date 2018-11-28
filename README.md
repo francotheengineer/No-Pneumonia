@@ -6,6 +6,10 @@ This is an End-End solution that allows the user to upload a picture of a digita
 
 Currently it is a work in progress, however, it only requires some parts to be plugged into each other.
 
+
+Work in progress but to run 😃: 
+`cd web_src; python3 -m http.server 8080`
+
 ## Humanitarian Need:
 ____
 <p align="center">
