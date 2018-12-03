@@ -31,7 +31,7 @@ Work in progress but to run 😃:
 </p>
 
 ## Results:
-This shows and Accuracy of ~69% in the Pneumonia class. This is achived through thresholding....slightly cheating but working nonetheless on the test set. If below threshold, then the image is 'normal'. This can likely be improved with grid search. I deployed from nothing to demo ready prototype in 12 hours so didn't have time to do much optimisation.
+This shows and Accuracy of ~69% in the Pneumonia class. This is achieved through thresholding....slightly cheating but working nonetheless on the test set. If below threshold, then the image is 'normal'. This can likely be improved with grid search. I deployed from nothing to demo ready prototype in 12 hours so didn't have time to do much optimisation.
 <p align="center">
 <img src="assets/no-pneumonia_results.png" width="60%"/>
 </p>
